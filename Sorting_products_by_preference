@@ -1,0 +1,23 @@
+"""
+L1 contains the review value of the object
+L2 contains the preference value of total objects
+Objects not shown on l2 are presented at the end of the final result list
+"""
+
+def sorting_preference(l1,l2):
+    dictionary = {}
+    l1.sort()
+    # print(l1)
+
+    for num in l1:
+        dictionary[num] = l1.count(num)
+    result = []
+
+    for element in l2:
+        result.extend([element] * dictionary[element])
+        
+    for element in dictionary:
+        if element not in l2:
+            result.extend([element] * dictionary[element])
+    # print(result)
+    return result
